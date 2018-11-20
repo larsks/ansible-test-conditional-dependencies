@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: role1
+
+    - assert:
+        that: not role_2_executed|default(false)
+
+    - include_role:
+        name: role1
+      vars:
+        need_role2: true
+
+    - assert:
+        that: role_2_executed|default(false)
+

@@ -1,0 +1,6 @@
+---
+- debug:
+    msg: this is role 1
+
+- set_fact:
+    role_1_executed: true
